@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Canvas Platform Game</title>
+	<style>
+		canvas {
+			border: 2px solid black;
+		}
+	</style>
+</head>
+
+<body>
+	<canvas id="canvas" width="800" height="600"></canvas>
+
+	<script src="env.js"></script>
+	<script src="player.js"></script>
+	<script src="collision.js"></script>
+	<script src="Shooting.js"></script>
+
+	<script>
+		var canvas = document.getElementById("canvas");
+		var ctx = canvas.getContext("2d");
+
+		function update() {
+			// Apply gravity to the player
+			player.velocity += player.gravity;
+			player.y += player.velocity;
+
+			// Keep the player above the floor
+			if (player.y + player.height > floor.y) {
+				player.y = floor.y - player.height;
+				player.velocity = 0;
+				player.isJumping = false;
+			}
+
+			Collision();			
+
+			// Update player position based on user input or game logic
+			if (keys.ArrowUp && !player.isJumping) {
+				player.velocity -= player.jumpStrength;
+				player.isJumping = true;
+			}
+			if (keys.ArrowLeft) {
+				player.x -= player.speed;
+			}
+			if (keys.ArrowRight) {
+				player.x += player.speed;
+			}
+
+			if(keys.Space){
+				Shoot();
+			}
+		}
+
+		function render() {
+			// Clear the canvas
+			ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+			// Draw the player, the floor, and the cube
+			drawPlayer();
+			drawFloor();
+			drawCubes();
+			//drawCube();
+		}
+
+		function gameLoop() {
+			update();
+			render();
+
+			requestAnimationFrame(gameLoop);
+		}
+
+		var keys = {};
+
+		document.addEventListener("keydown", function (event) {
+			keys[event.code] = true;
+		});
+
+		document.addEventListener("keyup", function (event) {
+			keys[event.code] = false;
+		});
+
+		gameLoop();
+	</script>
+
+</body>
+
+</html>
