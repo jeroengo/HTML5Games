@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Canvas Cube</title>
+	<style>
+		canvas {
+			border: 1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="myCanvas" width="500" height="500"></canvas>
+	<script>
+		var canvas = document.getElementById("myCanvas");
+		var ctx = canvas.getContext("2d");
+
+		// set up initial cube position and size
+		var cubeX = 50;
+		var cubeY = 50;
+		var cubeWidth = 50;
+		var cubeHeight = 50;
+
+		// set up grid spacing and size
+		var gridSize = 10;
+		var gridWidth = canvas.width / gridSize;
+		var gridHeight = canvas.height / gridSize;
+
+		// function to draw the cube
+		function drawCube() {
+			ctx.fillStyle = "#FF0000";
+			ctx.fillRect(cubeX, cubeY, cubeWidth, cubeHeight);
+		}
+
+		// function to clear the canvas and redraw the cube
+		function redraw() {
+			ctx.clearRect(0, 0, canvas.width, canvas.height);
+			drawCube();
+		}
+
+		// function to snap the cube to the nearest grid position
+		function snapToGrid() {
+			cubeX = Math.round(cubeX / gridWidth) * gridWidth;
+			cubeY = Math.round(cubeY / gridHeight) * gridHeight;
+		}
+
+		// function to handle mouse down event
+		function handleMouseDown(e) {
+			var mouseX = e.clientX - canvas.offsetLeft;
+			var mouseY = e.clientY - canvas.offsetTop;
+
+			if (mouseX >= cubeX && mouseX <= cubeX + cubeWidth && mouseY >= cubeY && mouseY <= cubeY + cubeHeight) {
+				canvas.addEventListener("mousemove", handleMouseMove);
+				canvas.addEventListener("mouseup", handleMouseUp);
+			}
+		}
+
+		// function to handle mouse move event while dragging
+		function handleMouseMove(e) {
+			var mouseX = e.clientX - canvas.offsetLeft;
+			var mouseY = e.clientY - canvas.offsetTop;
+
+			cubeX = mouseX - cubeWidth / 2;
+			cubeY = mouseY - cubeHeight / 2;
+
+			snapToGrid();
+			redraw();
+		}
+
+		// function to handle mouse up event
+		function handleMouseUp(e) {
+			canvas.removeEventListener("mousemove", handleMouseMove);
+			canvas.removeEventListener("mouseup", handleMouseUp);
+		}
+
+		// add mouse down event listener to canvas
+		canvas.addEventListener("mousedown", handleMouseDown);
+
+		// draw initial cube
+		drawCube();
+	</script>
+</body>
+</html>

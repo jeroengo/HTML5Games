@@ -34,16 +34,24 @@ var cube = {
     height: 30
 };
 
+var timer = 0;
+
 function drawFloor() {
     ctx.fillStyle = "green";
     ctx.fillRect(floor.x, floor.y, floor.width, floor.height);
 }
 
 function drawCubes(){
+
+    
     for (var i = 0; i < cubes.length; i++) {
+        cubes[i].x + timer;
+
         ctx.fillStyle = "blue";
         ctx.fillRect(cubes[i].x, cubes[i].y, cubes[i].width, cubes[i].height);
     }
+
+    timer++;
 }
 
 function drawCube() {
