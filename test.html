@@ -17,24 +17,18 @@
 	<script src="player.js"></script>
 	<script src="collision.js"></script>
 	<script src="Shooting.js"></script>
+	<script src="Ball.js"></script>
+	<script src="Physics.js"></script>
 
 	<script>
 		var canvas = document.getElementById("canvas");
 		var ctx = canvas.getContext("2d");
 
 		function update() {
-			// Apply gravity to the player
-			player.velocity += player.gravity;
-			player.y += player.velocity;
+			
+			
 
-			// Keep the player above the floor
-			if (player.y + player.height > floor.y) {
-				player.y = floor.y - player.height;
-				player.velocity = 0;
-				player.isJumping = false;
-			}
-
-			Collision();			
+			Collision(player);			
 
 			// Update player position based on user input or game logic
 			if (keys.ArrowUp && !player.isJumping) {
@@ -59,6 +53,7 @@
 
 			// Draw the player, the floor, and the cube
 			drawPlayer();
+			drawBall();
 			drawFloor();
 			drawCubes();
 			//drawCube();
@@ -68,6 +63,9 @@
 			update();
 			render();
 
+			DoPhysics(player);
+			DoPhysics(ball);
+			
 			requestAnimationFrame(gameLoop);
 		}
 
