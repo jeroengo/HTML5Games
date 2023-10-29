@@ -1,15 +1,18 @@
 class BallClass {
-    constructor() {
+    constructor(movespeed) {
        this.x = 50;
        this.y = 50;
        this.width = 50;
        this.height = 50;
+
+       this.movespeed = movespeed;
         
     }      
 
     BallUpdate() {
-
-        DrawBall()
+        this.x += this.movespeed;
+        this.DrawBall();
+        
     }
 
     DrawBall() {

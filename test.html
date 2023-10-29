@@ -24,7 +24,8 @@
 		var canvas = document.getElementById("canvas");
 		var ctx = canvas.getContext("2d");
 
-		const newBall = new BallClass();
+		const newBall2 = new BallClass(0.5);
+		const newBall1 = new BallClass(1);
 
 		function update() {
 
@@ -59,7 +60,7 @@
 			drawFloor();
 			drawCubes();
 
-			newBall.DrawBall();
+			
 			//drawCube();
 		}
 
@@ -69,6 +70,9 @@
 
 			DoPhysics(player);
 			//DoPhysics(ball);
+
+			newBall1.BallUpdate();
+			newBall2.BallUpdate();
 
 			requestAnimationFrame(gameLoop);
 		}
