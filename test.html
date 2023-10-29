@@ -4,28 +4,33 @@
 <head>
 	<title>Canvas Platform Game</title>
 
-	<link rel="stylesheet" href="style.css"> 
+	<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 	<canvas id="canvas" width="800" height="600"></canvas>
 
+	<script src="Ball.js"></script>
 	<script src="env.js"></script>
 	<script src="player.js"></script>
 	<script src="collision.js"></script>
 	<script src="Shooting.js"></script>
-	<script src="Ball.js"></script>
 	<script src="Physics.js"></script>
 
+
+
 	<script>
+
 		var canvas = document.getElementById("canvas");
 		var ctx = canvas.getContext("2d");
 
+		const newBall = new BallClass();
+
 		function update() {
-			
+
 			
 
-			Collision(player);			
+			Collision(player);
 
 			// Update player position based on user input or game logic
 			if (keys.ArrowUp && !player.isJumping) {
@@ -39,7 +44,7 @@
 				player.x += player.speed;
 			}
 
-			if(keys.Space){
+			if (keys.Space) {
 				Shoot();
 			}
 		}
@@ -50,9 +55,11 @@
 
 			// Draw the player, the floor, and the cube
 			drawPlayer();
-			drawBall();
+			//drawBall();
 			drawFloor();
 			drawCubes();
+
+			newBall.DrawBall();
 			//drawCube();
 		}
 
@@ -61,8 +68,8 @@
 			render();
 
 			DoPhysics(player);
-			DoPhysics(ball);
-			
+			//DoPhysics(ball);
+
 			requestAnimationFrame(gameLoop);
 		}
 
@@ -77,7 +84,12 @@
 		});
 
 		gameLoop();
+
+
+
 	</script>
+
+
 
 </body>
 

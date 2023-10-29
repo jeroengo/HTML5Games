@@ -1,19 +1,24 @@
-var ball = {
-    x: 150,
-    y: 50,
-    width: 50,
-    height: 50,
-    speed: 5,
-    velocity: 0,
-    jumpStrength: 15,
-    gravity: 1,
-    isJumping: false
-};
+class BallClass {
+    constructor() {
+       this.x = 50;
+       this.y = 50;
+       this.width = 50;
+       this.height = 50;
+        
+    }      
 
-function drawBall() {
-    ctx.fillStyle = "pink";
-    ctx.fillRect(ball.x, ball.y, ball.width, ball.height);
+    BallUpdate() {
 
-    Collision(ball);   
+        DrawBall()
+    }
+
+    DrawBall() {
+        ctx.fillStyle = "red";
+        ctx.fillRect(this.x, this.y, this.width, this.height);
+        //console.log(this.x);
+        
+    }
 }
+
+
 
