@@ -2,11 +2,14 @@ var keys = {};
 
 var playerpos = {x:0,Y:0};
 
+var newPlayer={};
+
 window.addEventListener('load', function () {
     
 
     const newPlayer = new Player();
-    const newEnemy = new Enemy();
+    const newEnemy = new Enemy(300,500);
+    const newEnemy2 = new Enemy(600,100);
 
     checkKeyInput();
     gameLoop();
@@ -17,6 +20,7 @@ window.addEventListener('load', function () {
 
         newPlayer.Update();
         newEnemy.Update();
+        newEnemy2.Update();
         
         playerpos.x = newPlayer.player.x;
         playerpos.y = newPlayer.player.y;

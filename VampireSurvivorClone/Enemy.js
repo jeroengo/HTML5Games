@@ -1,8 +1,8 @@
 class Enemy {
-    constructor() {
+    constructor(spawnx, spawny) {
         this.EnemyUnit = {
-            x: 120,
-            y: 120,
+            x: spawnx,
+            y: spawny,
             width: 20,
             height: 20,
             speed: 1,
@@ -17,6 +17,10 @@ class Enemy {
     Update() {
         this.Draw();
         this.moveTowardsPlayer();
+
+        if(Collision(this.EnemyUnit, newPlayer)){
+            console.log("Collision happend");
+        }
     }
 
     moveTowardsPlayer() {
