@@ -14,7 +14,7 @@ class Player {
 
     }
 
-    Update(keys) {
+    Update() {
 
         // Update player position based on user input or game logic
         if (keys.ArrowUp) {

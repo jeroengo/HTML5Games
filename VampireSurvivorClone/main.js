@@ -1,6 +1,7 @@
-window.addEventListener('load', function () {
+var keys = {};
 
-    var keys = {};
+window.addEventListener('load', function () {
+    
 
     const newPlayer = new Player();
 
@@ -11,7 +12,7 @@ window.addEventListener('load', function () {
         
         Render();
 
-        newPlayer.Update(keys);
+        newPlayer.Update();
         
 
         requestAnimationFrame(gameLoop);
