@@ -1,11 +1,11 @@
 function Collision(Self, Collider) {
 
-    for (var i = 0; i < Collider.length; i++) {
+    //for (var i = 0; i < Collider.length; i++) {
 
-        if (Self.x < Collider[i].x + Collider[i].width &&
-            Self.x + Self.width > Collider[i].x &&
-            Self.y < Collider[i].y + Collider[i].height &&
-            Self.y + Self.height > Collider[i].y) {
+        if (Self.x < Collider.x + Collider.width &&
+            Self.x + Self.width > Collider.x &&
+            Self.y < Collider.y + Collider.height &&
+            Self.y + Self.height > Collider.y) {
 
                 return true;
 
@@ -32,4 +32,4 @@ function Collision(Self, Collider) {
             }
         }
     }
-}
+//}

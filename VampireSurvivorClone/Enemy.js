@@ -3,8 +3,8 @@ class Enemy {
         this.EnemyUnit = {
             x: spawnx,
             y: spawny,
-            width: 20,
-            height: 20,
+            width: 50,
+            height: 50,
             speed: 1,
             velocity: 0,
             jumpStrength: 15,
@@ -15,12 +15,18 @@ class Enemy {
     }
 
     Update() {
+
+        if (Collision(this.EnemyUnit, newPlayer.player)) {
+            console.log("Collision happend");
+
+            newEnemy = null;
+        }
+
         this.Draw();
+
         this.moveTowardsPlayer();
 
-        if (Collision(this.EnemyUnit, newPlayer)) {
-            console.log("Collision happend");
-        }
+        
 
 
     }
@@ -30,7 +36,7 @@ class Enemy {
 
         var playerpos = { x: newPlayer.getPlayerPostition().x, y: newPlayer.getPlayerPostition().y };
 
-        console.log(playerpos);
+        //console.log(playerpos);
 
         if (this.EnemyUnit.x > playerpos.x) {
             this.EnemyUnit.x -= this.EnemyUnit.speed;

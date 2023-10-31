@@ -3,7 +3,7 @@ var keys = {};
 const newPlayer = new Player();
 
 const newEnemy = new Enemy(300, 500);
-const newEnemy2 = new Enemy(600, 100);
+//const newEnemy2 = new Enemy(600, 100);
 
 checkKeyInput();
 Init();
@@ -20,7 +20,7 @@ function gameLoop() {
 
     newPlayer.Update();
     newEnemy.Update();
-    newEnemy2.Update();
+    //newEnemy2.Update();
 
     requestAnimationFrame(gameLoop);
 }
