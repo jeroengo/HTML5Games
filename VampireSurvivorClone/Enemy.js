@@ -16,28 +16,32 @@ class Enemy {
 
     Update() {
         this.Draw();
-        //this.moveTowardsPlayer();
+        this.moveTowardsPlayer();
 
-        if(Collision(this.EnemyUnit, newPlayer)){
+        if (Collision(this.EnemyUnit, newPlayer)) {
             console.log("Collision happend");
         }
 
-        console.log(newPlayer.getPlayerPostition());
+
     }
 
     moveTowardsPlayer() {
         //console.log(this.EnemyUnit.x, this.EnemyUnit.y);
 
-        if(this.EnemyUnit.x > playerpos.x){
+        var playerpos = { x: newPlayer.getPlayerPostition().x, y: newPlayer.getPlayerPostition().y };
+
+        console.log(playerpos);
+
+        if (this.EnemyUnit.x > playerpos.x) {
             this.EnemyUnit.x -= this.EnemyUnit.speed;
         }
-        if(this.EnemyUnit.x < playerpos.x){
+        if (this.EnemyUnit.x < playerpos.x) {
             this.EnemyUnit.x += this.EnemyUnit.speed;
         }
-        if(this.EnemyUnit.y > playerpos.y){
+        if (this.EnemyUnit.y > playerpos.y) {
             this.EnemyUnit.y -= this.EnemyUnit.speed;
         }
-        if(this.EnemyUnit.y < playerpos.y){
+        if (this.EnemyUnit.y < playerpos.y) {
             this.EnemyUnit.y += this.EnemyUnit.speed;
         }
     }
