@@ -37,7 +37,10 @@ class Player {
         ctx.fillStyle = "blue";
         ctx.fillRect(this.player.x, this.player.y, this.player.width, this.player.height);
     }
+
+    getPlayerPostition() {
+        return { x: this.player.x, y: this.player.y };
+    }
+
 }
-
-
 

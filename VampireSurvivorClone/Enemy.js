@@ -16,11 +16,13 @@ class Enemy {
 
     Update() {
         this.Draw();
-        this.moveTowardsPlayer();
+        //this.moveTowardsPlayer();
 
         if(Collision(this.EnemyUnit, newPlayer)){
             console.log("Collision happend");
         }
+
+        console.log(newPlayer.getPlayerPostition());
     }
 
     moveTowardsPlayer() {
