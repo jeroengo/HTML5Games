@@ -16,11 +16,19 @@ class Enemy {
 
     Update() {
 
+        console.log('Enemy updating');
+
         if (Collision(this.EnemyUnit, newPlayer.player)) {
             console.log("Collision happend");
 
-            newEnemy = null;
+            
+            
+            //objManager.gameObjects[this] = null;
+
+            objManager.removeObject(this);
         }
+
+       
 
         this.Draw();
 
