@@ -6,8 +6,19 @@ class enemySpawner {
     Update() {
         this.timer = this.timer + 1;
         
-        if (this.timer > 100) {
+        if (this.timer > 0) {
             this.SpawnEnemy();
+            this.SpawnEnemy();
+            this.SpawnEnemy();
+            this.SpawnEnemy();
+            this.SpawnEnemy();
+            this.SpawnEnemy();
+            this.SpawnEnemy();
+            this.SpawnEnemy();
+            this.SpawnEnemy();
+            this.SpawnEnemy();
+
+   
             this.timer = 0;
         }
     }
@@ -16,7 +27,7 @@ class enemySpawner {
     SpawnEnemy() {
 
         let spawnPos = {
-            x: this.getRndInteger(1,600),
+            x: this.getRndInteger(1,800),
             y : this.getRndInteger(1,600)
         }
         

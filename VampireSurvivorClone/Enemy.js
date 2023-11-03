@@ -3,8 +3,8 @@ class Enemy {
         this.EnemyUnit = {
             x: spawnx,
             y: spawny,
-            width: 50,
-            height: 50,
+            width: 12.5,
+            height: 12.5,
             speed: 1,
             velocity: 0,
             jumpStrength: 15,

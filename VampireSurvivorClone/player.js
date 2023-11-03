@@ -1,10 +1,10 @@
 class Player {
     constructor() {
         this.player = {
-            x: 50,
-            y: 50,
-            width: 50,
-            height: 50,
+            x: 300,
+            y: 300,
+            width: 25,
+            height: 25,
             speed: 5,
             velocity: 0,
             jumpStrength: 15,
