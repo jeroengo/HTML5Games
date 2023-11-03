@@ -5,7 +5,7 @@ class enemySpawner {
 
     Update() {
         this.timer = this.timer + 1;
-        console.log(this.timer);
+        
         if (this.timer > 100) {
             this.SpawnEnemy();
             this.timer = 0;
@@ -14,7 +14,17 @@ class enemySpawner {
 
 
     SpawnEnemy() {
-        objManager.addObject(new Enemy(600, 600));
+
+        let spawnPos = {
+            x: this.getRndInteger(1,600),
+            y : this.getRndInteger(1,600)
+        }
+        
+        objManager.addObject(new Enemy(spawnPos.x, spawnPos.y));
+    }
+
+    getRndInteger(min, max){
+        return Math.floor(Math.random() * (max-min)) + min;
     }
 
 }
