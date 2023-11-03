@@ -2,12 +2,13 @@ var keys = {};
 
 const objManager = new ObjManager();
 
-objManager.addObject(newEnemy = new Enemy(300, 500));
-objManager.addObject(newEnemy = new Enemy(600, 600));
+//objManager.addObject(newEnemy = new Enemy(300, 500));
 
 //let newEnemy = new Enemy(300,300);
 
 const newPlayer = new Player();
+
+const newSpawner = new enemySpawner();
 
 
 
@@ -30,7 +31,11 @@ function gameLoop() {
 
     newPlayer.Update();
 
+    newSpawner.Update();
+
     objManager.UpdateAll();
+
+    
 
     //newEnemy.Update();
     // if(newEnemy != null){
