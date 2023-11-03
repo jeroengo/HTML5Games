@@ -16,25 +16,34 @@ class Enemy {
 
     Update() {
 
-        console.log('Enemy updating');
+        //console.log('Enemy updating');
+        if (this.EnemyUnit != null) {
 
-        if (Collision(this.EnemyUnit, newPlayer.player)) {
-            console.log("Collision happend");
 
-            
-            
-            //objManager.gameObjects[this] = null;
 
-            objManager.removeObject(this);
+            this.Draw();
+
+            this.moveTowardsPlayer();
+
+
+            if (Collision(this.EnemyUnit, newPlayer.player)) {
+                //console.log("Collision happend");
+
+                this.EnemyUnit = null;
+                //destroyObject(self);
+
+                //objManager.gameObjects[0] = null;
+
+                //objManager.removeObject(this);
+
+                ///objManager.removeObject();
+            }
+
+
+
+
+
         }
-
-       
-
-        this.Draw();
-
-        this.moveTowardsPlayer();
-
-        
 
 
     }

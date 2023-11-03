@@ -8,13 +8,19 @@ class ObjManager {
         this.gameObjects.push(object)
     }
 
-    removeObject(object){
-        this.gameObjects.pull(object);
+    removeObject(object) {
+        this.gameObjects(object);
     }
 
     UpdateAll() {
         this.gameObjects.forEach(obj => {
-            obj.Update();
+            if (obj === null) {
+
+                console.log("invallid type");
+            }
+            else{
+                obj.Update();
+            }
         });
     }
 }

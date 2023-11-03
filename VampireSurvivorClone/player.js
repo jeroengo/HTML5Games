@@ -33,6 +33,8 @@ class Player {
         this.Draw();
     }
 
+     
+
     Draw() {
         ctx.fillStyle = "blue";
         ctx.fillRect(this.player.x, this.player.y, this.player.width, this.player.height);

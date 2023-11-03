@@ -5,6 +5,8 @@ const objManager = new ObjManager();
 objManager.addObject(newEnemy = new Enemy(300, 500));
 objManager.addObject(newEnemy = new Enemy(600, 600));
 
+//let newEnemy = new Enemy(300,300);
+
 const newPlayer = new Player();
 
 
@@ -30,7 +32,7 @@ function gameLoop() {
 
     objManager.UpdateAll();
 
-    
+    //newEnemy.Update();
     // if(newEnemy != null){
     // newEnemy.Update();
     // }   
@@ -56,4 +58,6 @@ function Render() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 
-
+function destroyObject(object){
+    object = null;
+}
