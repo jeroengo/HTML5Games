@@ -18,9 +18,23 @@ class ObjManager {
 
                 console.log("invallid type");
             }
-            else{
+            else {
                 obj.Update();
             }
         });
+
+        this.CleanUp();
+    }
+
+    CleanUp() {
+
+        for (let i = 0; i < this.gameObjects.length; i++) {
+
+            if (this.gameObjects[i] == null) {
+
+                this.gameObjects.splice(i, 1);
+
+            }
+        }
     }
 }
