@@ -11,7 +11,6 @@ class Enemy {
             gravity: 1,
             isJumping: false
         };
-
     }
 
     Update() {
@@ -19,39 +18,19 @@ class Enemy {
         //console.log('Enemy updating');
         if (this.EnemyUnit != null) {
 
-
-
             this.Draw();
-
             this.moveTowardsPlayer();
 
-
             if (Collision(this.EnemyUnit, newPlayer.player)) {
-                //console.log("Collision happend");
-
                 this.EnemyUnit = null;
-                //destroyObject(self);
-
-                //objManager.gameObjects[0] = null;
-
-                //objManager.removeObject(this);
-
-                ///objManager.removeObject();
             }
-
-
-
-
-
         }
-
-
     }
 
     moveTowardsPlayer() {
-        //console.log(this.EnemyUnit.x, this.EnemyUnit.y);
 
-        var playerpos = { x: newPlayer.getPlayerPostition().x+newPlayer.player.width/2, y: newPlayer.getPlayerPostition().y+newPlayer.player.height/2 };
+        var playerpos = {   x: newPlayer.getPlayerPostition().x + newPlayer.player.width / 2, 
+                            y: newPlayer.getPlayerPostition().y + newPlayer.player.height / 2 };
 
         let directionX = playerpos.x - this.EnemyUnit.x;
         let directionY = playerpos.y - this.EnemyUnit.y;
@@ -71,22 +50,6 @@ class Enemy {
         // Update the character's position in the direction of the target
         this.EnemyUnit.x += normalizedDirectionX * this.EnemyUnit.speed;
         this.EnemyUnit.y += normalizedDirectionY * this.EnemyUnit.speed;
-
-        //console.log(playerpos);
-
-        //Old movement
-        // if (this.EnemyUnit.x > playerpos.x) {
-        //     this.EnemyUnit.x -= this.EnemyUnit.speed;
-        // }
-        // if (this.EnemyUnit.x < playerpos.x) {
-        //     this.EnemyUnit.x += this.EnemyUnit.speed;
-        // }
-        // if (this.EnemyUnit.y > playerpos.y) {
-        //     this.EnemyUnit.y -= this.EnemyUnit.speed;
-        // }
-        // if (this.EnemyUnit.y < playerpos.y) {
-        //     this.EnemyUnit.y += this.EnemyUnit.speed;
-        // }
     }
 
     Draw() {

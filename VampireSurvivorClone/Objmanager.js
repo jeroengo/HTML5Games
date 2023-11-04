@@ -22,9 +22,7 @@ class ObjManager {
                 obj.Update();
             }
         });
-
-        //console.log(this.gameObjects.length);
-
+        
         this.CleanUp();
     }
 
