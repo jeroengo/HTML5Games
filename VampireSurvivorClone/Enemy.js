@@ -51,7 +51,7 @@ class Enemy {
     moveTowardsPlayer() {
         //console.log(this.EnemyUnit.x, this.EnemyUnit.y);
 
-        var playerpos = { x: newPlayer.getPlayerPostition().x, y: newPlayer.getPlayerPostition().y };
+        var playerpos = { x: newPlayer.getPlayerPostition().x+newPlayer.player.width/2, y: newPlayer.getPlayerPostition().y+newPlayer.player.height/2 };
 
         let directionX = playerpos.x - this.EnemyUnit.x;
         let directionY = playerpos.y - this.EnemyUnit.y;
