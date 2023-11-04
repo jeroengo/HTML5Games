@@ -53,20 +53,40 @@ class Enemy {
 
         var playerpos = { x: newPlayer.getPlayerPostition().x, y: newPlayer.getPlayerPostition().y };
 
+        let directionX = playerpos.x - this.EnemyUnit.x;
+        let directionY = playerpos.y - this.EnemyUnit.y;
+
+        let distance = Math.sqrt(directionX * directionX + directionY * directionY);
+
+        if (distance <= this.EnemyUnit.speed) {
+            this.EnemyUnit.x = playerpos.x;
+            this.EnemyUnit.y = playerpos.y;
+            return; // Character has reached the target
+          }
+
+          // Normalize the direction vector
+        let normalizedDirectionX = directionX / distance;
+        let normalizedDirectionY = directionY / distance;
+
+        // Update the character's position in the direction of the target
+        this.EnemyUnit.x += normalizedDirectionX * this.EnemyUnit.speed;
+        this.EnemyUnit.y += normalizedDirectionY * this.EnemyUnit.speed;
+
         //console.log(playerpos);
 
-        if (this.EnemyUnit.x > playerpos.x) {
-            this.EnemyUnit.x -= this.EnemyUnit.speed;
-        }
-        if (this.EnemyUnit.x < playerpos.x) {
-            this.EnemyUnit.x += this.EnemyUnit.speed;
-        }
-        if (this.EnemyUnit.y > playerpos.y) {
-            this.EnemyUnit.y -= this.EnemyUnit.speed;
-        }
-        if (this.EnemyUnit.y < playerpos.y) {
-            this.EnemyUnit.y += this.EnemyUnit.speed;
-        }
+        //Old movement
+        // if (this.EnemyUnit.x > playerpos.x) {
+        //     this.EnemyUnit.x -= this.EnemyUnit.speed;
+        // }
+        // if (this.EnemyUnit.x < playerpos.x) {
+        //     this.EnemyUnit.x += this.EnemyUnit.speed;
+        // }
+        // if (this.EnemyUnit.y > playerpos.y) {
+        //     this.EnemyUnit.y -= this.EnemyUnit.speed;
+        // }
+        // if (this.EnemyUnit.y < playerpos.y) {
+        //     this.EnemyUnit.y += this.EnemyUnit.speed;
+        // }
     }
 
     Draw() {
