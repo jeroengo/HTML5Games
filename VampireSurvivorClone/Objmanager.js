@@ -23,7 +23,7 @@ class ObjManager {
             }
         });
 
-        console.log(this.gameObjects.length);
+        //console.log(this.gameObjects.length);
 
         this.CleanUp();
     }
