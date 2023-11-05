@@ -6,19 +6,9 @@ class enemySpawner {
     Update() {
         this.timer = this.timer + 1;
         
-        if (this.timer > 0) {
-            this.SpawnEnemy();
-            this.SpawnEnemy();
-            this.SpawnEnemy();
-            this.SpawnEnemy();
-            this.SpawnEnemy();
-            this.SpawnEnemy();
-            this.SpawnEnemy();
-            this.SpawnEnemy();
-            this.SpawnEnemy();
-            this.SpawnEnemy();
+        if (this.timer > 5) {
+            this.SpawnEnemy();   
 
-   
             this.timer = 0;
         }
     }
