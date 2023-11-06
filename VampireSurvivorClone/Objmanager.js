@@ -9,7 +9,7 @@ class ObjManager {
     }
 
     removeObject(object) {
-        this.gameObjects(object);
+
     }
 
     UpdateAll() {
@@ -22,19 +22,24 @@ class ObjManager {
                 obj.Update();
             }
         });
-        
+
         this.CleanUp();
     }
 
     CleanUp() {
 
+    
+
+
         for (let i = 0; i < this.gameObjects.length; i++) {
 
-            if (this.gameObjects[i] == null) {
+            //if (this.gameObjects[i] == null) {
 
-                this.gameObjects.splice(i, 1);
+                if (this.gameObjects[i].getAliveStatus() == false) {
 
-            }
+                    this.gameObjects.splice(i, 1);
+                }
+           // }
         }
     }
 }

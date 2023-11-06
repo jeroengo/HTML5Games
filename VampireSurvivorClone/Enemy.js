@@ -9,9 +9,14 @@ class Enemy {
             velocity: 0,
             jumpStrength: 15,
             gravity: 1,
-            isJumping: false
+            isJumping: false,
+            isAlive: true
         };
     }
+
+    getAliveStatus(){
+        return this.EnemyUnit.isAlive;
+       }
 
     Update() {
 
@@ -24,8 +29,9 @@ class Enemy {
             if (Collision(this.EnemyUnit, newPlayer.player)) {
                
                 scoreManager.adjustScore(1);
+                this.EnemyUnit.isAlive = false;
 
-                this.EnemyUnit = null;
+                //this.EnemyUnit = null;
 
             }
         }
