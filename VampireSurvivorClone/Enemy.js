@@ -22,7 +22,11 @@ class Enemy {
             this.moveTowardsPlayer();
 
             if (Collision(this.EnemyUnit, newPlayer.player)) {
+               
+                scoreManager.adjustScore(1);
+
                 this.EnemyUnit = null;
+
             }
         }
     }

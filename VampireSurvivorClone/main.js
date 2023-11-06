@@ -6,6 +6,11 @@ const newPlayer = new Player();
 
 const newSpawner = new enemySpawner();
 
+const scoreManager = new ScoreManager();
+
+const uiManager = new UIManager();
+
+
 checkKeyInput();
 Init();
 gameLoop();
@@ -24,6 +29,8 @@ function gameLoop() {
     newSpawner.Update();
 
     objManager.UpdateAll();
+
+    uiManager.Update();
 
     requestAnimationFrame(gameLoop);
 }
