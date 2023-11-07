@@ -7,10 +7,8 @@ class Enemy {
             height: 12.5,
             speed: 1,
             velocity: 0,
-            jumpStrength: 15,
-            gravity: 1,
-            isJumping: false,
-            isAlive: true
+            isAlive: true,
+            type: 'enemy'
         };
     }
 

@@ -11,12 +11,31 @@ class Player {
             gravity: 1,
             isJumping: false
         };
+
+        this.direction = {
+            x: 0,
+            y: 0
+        };
     }
 
     Update() {
 
         this.PlayerMovement();
         this.Draw();
+        this.AttackKnife();
+    }
+
+    AttackKnife() {
+
+        //console.log(keys);
+
+        if (keys.Space) {
+
+            console.log("Space pressed");
+
+            objManager.addObject(new Knife(this.direction,this.player.x,this.player.y));
+
+        }
     }
 
     PlayerMovement() {
@@ -25,15 +44,19 @@ class Player {
 
         if (keys.ArrowUp) {
             playerspeed.y = -this.player.speed;
+            this.direction.y = -1;
         }
         if (keys.ArrowDown) {
             playerspeed.y = this.player.speed;
+            this.direction.y = 1;
         }
         if (keys.ArrowLeft) {
             playerspeed.x = -this.player.speed;
+            this.direction.x = -1;
         }
         if (keys.ArrowRight) {
             playerspeed.x = this.player.speed;
+            this.direction.x = 1;
         }
 
         let inputvector = Math.sqrt(playerspeed.x * playerspeed.x + playerspeed.y * playerspeed.y);
