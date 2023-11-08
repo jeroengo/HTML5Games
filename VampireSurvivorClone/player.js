@@ -33,7 +33,7 @@ class Player {
 
             console.log("Space pressed");
 
-            objManager.addObject(new Knife(this.direction,this.player.x,this.player.y));
+            objManager.addObject(new Knife(this.direction, this.player.x, this.player.y));
 
         }
     }
@@ -41,24 +41,45 @@ class Player {
     PlayerMovement() {
 
         let playerspeed = { x: 0, y: 0 };
-
+        
         if (keys.ArrowUp) {
             playerspeed.y = -this.player.speed;
             this.direction.y = -1;
+
+            if (keys.ArrowLeft == false && keys.ArrowRight == false) {
+                this.direction.x = 0;
+            }
         }
+
         if (keys.ArrowDown) {
             playerspeed.y = this.player.speed;
             this.direction.y = 1;
+
+            if (keys.ArrowLeft == false && keys.ArrowRight == false) {
+                this.direction.x = 0;
+            }
         }
+
         if (keys.ArrowLeft) {
             playerspeed.x = -this.player.speed;
             this.direction.x = -1;
+
+            if (keys.ArrowUp == false && keys.ArrowDown == false) {
+                this.direction.y = 0;
+            }
         }
+
         if (keys.ArrowRight) {
             playerspeed.x = this.player.speed;
             this.direction.x = 1;
+
+            if (keys.ArrowUp == false && keys.ArrowDown == false) {
+                this.direction.y = 0;
+            }
         }
 
+
+        //Normalisation of diagonals
         let inputvector = Math.sqrt(playerspeed.x * playerspeed.x + playerspeed.y * playerspeed.y);
 
         if (inputvector !== 0) {
