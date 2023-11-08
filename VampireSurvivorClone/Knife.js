@@ -1,14 +1,17 @@
 class Knife {
     constructor(direction, startx, starty) {
         this.object = {
-            x: startx,
-            y: starty,
             width: 10,
-            height: 10,
+            height: 10,            
+            x: startx,
+            y: starty,            
             speed: 15,
             damage: 1,
             isAlive: true
         };
+
+        this.object.x -= this.object.width/2;
+        this.object.y -= this.object.height/2;
 
         this.dir = {
             x: direction.x,

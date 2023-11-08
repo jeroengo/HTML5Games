@@ -33,7 +33,7 @@ class Player {
 
             console.log("Space pressed");
 
-            objManager.addObject(new Knife(this.direction, this.player.x, this.player.y));
+            objManager.addObject(new Knife(this.direction, this.player.x + this.player.width*0.5, this.player.y + this.player.height/2));
 
         }
     }
@@ -41,7 +41,7 @@ class Player {
     PlayerMovement() {
 
         let playerspeed = { x: 0, y: 0 };
-        
+
         if (keys.ArrowUp) {
             playerspeed.y = -this.player.speed;
             this.direction.y = -1;
