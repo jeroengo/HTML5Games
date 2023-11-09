@@ -31,8 +31,6 @@ class Player {
 
         if (keys.Space) {
 
-            console.log("Space pressed");
-
             objManager.addObject(new Knife(this.direction, this.player.x + this.player.width*0.5, this.player.y + this.player.height/2));
 
         }
