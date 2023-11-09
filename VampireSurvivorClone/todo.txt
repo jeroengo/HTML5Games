@@ -1,0 +1,9 @@
+Gameplay
+- Add bible
+
+System
+- create baseclass for weapons
+- create baseclass for items
+
+Graphics
+- get graphics 
