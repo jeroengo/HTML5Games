@@ -21,10 +21,15 @@ class Knife {
 
     Update() {
 
+        this.CheckCollision();
         this.Move();
         this.Draw();
     }
     
+    CheckCollision(){
+       MultiCollision(this.object, objManager.gameObjects);
+    }
+
     getAliveStatus(){
         return this.object.isAlive;
        }

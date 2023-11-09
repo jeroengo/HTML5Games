@@ -1,6 +1,6 @@
 class Enemy {
     constructor(spawnx, spawny) {
-        this.EnemyUnit = {
+        this.object = {
             x: spawnx,
             y: spawny,
             width: 12.5,
@@ -13,23 +13,23 @@ class Enemy {
     }
 
     getAliveStatus(){
-        return this.EnemyUnit.isAlive;
+        return this.object.isAlive;
        }
 
     Update() {
 
         //console.log('Enemy updating');
-        if (this.EnemyUnit != null) {
+        if (this.object != null) {
 
             this.Draw();
             this.moveTowardsPlayer();
 
-            if (Collision(this.EnemyUnit, newPlayer.player)) {
+            if (Collision(this.object, newPlayer.player)) {
                
                 scoreManager.adjustScore(1);
-                this.EnemyUnit.isAlive = false;
+                this.object.isAlive = false;
 
-                //this.EnemyUnit = null;
+                //this.object = null;
 
             }
         }
@@ -40,14 +40,14 @@ class Enemy {
         var playerpos = {   x: newPlayer.getPlayerPostition().x + newPlayer.player.width / 2, 
                             y: newPlayer.getPlayerPostition().y + newPlayer.player.height / 2 };
 
-        let directionX = playerpos.x - this.EnemyUnit.x;
-        let directionY = playerpos.y - this.EnemyUnit.y;
+        let directionX = playerpos.x - this.object.x;
+        let directionY = playerpos.y - this.object.y;
 
         let distance = Math.sqrt(directionX * directionX + directionY * directionY);
 
-        if (distance <= this.EnemyUnit.speed) {
-            this.EnemyUnit.x = playerpos.x;
-            this.EnemyUnit.y = playerpos.y;
+        if (distance <= this.object.speed) {
+            this.object.x = playerpos.x;
+            this.object.y = playerpos.y;
             return; // Character has reached the target
           }
 
@@ -56,13 +56,13 @@ class Enemy {
         let normalizedDirectionY = directionY / distance;
 
         // Update the character's position in the direction of the target
-        this.EnemyUnit.x += normalizedDirectionX * this.EnemyUnit.speed;
-        this.EnemyUnit.y += normalizedDirectionY * this.EnemyUnit.speed;
+        this.object.x += normalizedDirectionX * this.object.speed;
+        this.object.y += normalizedDirectionY * this.object.speed;
     }
 
     Draw() {
         ctx.fillStyle = "red";
-        ctx.fillRect(this.EnemyUnit.x, this.EnemyUnit.y, this.EnemyUnit.width, this.EnemyUnit.height);
+        ctx.fillRect(this.object.x, this.object.y, this.object.width, this.object.height);
     }
 }
 
