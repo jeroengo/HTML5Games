@@ -37,8 +37,8 @@ class Enemy {
 
     moveTowardsPlayer() {
 
-        var playerpos = {   x: newPlayer.getPlayerPostition().x + newPlayer.player.width / 2, 
-                            y: newPlayer.getPlayerPostition().y + newPlayer.player.height / 2 };
+        var playerpos = {   x: newPlayer.getPlayer().x + newPlayer.player.width / 2, 
+                            y: newPlayer.getPlayer().y + newPlayer.player.height / 2 };
 
         let directionX = playerpos.x - this.object.x;
         let directionY = playerpos.y - this.object.y;

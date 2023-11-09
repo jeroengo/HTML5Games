@@ -13,7 +13,7 @@ class Player {
         };
 
         this.direction = {
-            x: 0,
+            x: 1,
             y: 0
         };
     }
@@ -89,8 +89,13 @@ class Player {
         this.player.y += playerspeed.y * this.player.speed;
     }
 
-    getPlayerPostition() {
-        return { x: this.player.x, y: this.player.y };
+    getPlayer() {
+        return {    x: this.player.x, 
+                    y: this.player.y,
+                    width: this.player.width,
+                    height: this.player.height,
+                    dirx: this.direction.x,
+                    diry: this.direction.y };
     }
 
     Draw() {

@@ -6,7 +6,7 @@ class enemySpawner {
     Update() {
         this.timer = this.timer + 1;
         
-        if (this.timer > 5) {
+        if (this.timer > 200) {
             this.SpawnEnemy();   
 
             this.timer = 0;

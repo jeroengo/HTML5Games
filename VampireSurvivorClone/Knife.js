@@ -1,5 +1,5 @@
 class Knife {
-    constructor(direction, startx, starty) {
+    constructor(dirx,diry, startx, starty) {
         this.object = {
             width: 10,
             height: 10,
@@ -15,8 +15,8 @@ class Knife {
         this.object.y -= this.object.height / 2;
 
         this.dir = {
-            x: direction.x,
-            y: direction.y
+            x: dirx,
+            y: diry
         };
 
         this.timer = 0;

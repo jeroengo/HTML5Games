@@ -10,6 +10,8 @@ const scoreManager = new ScoreManager();
 
 const uiManager = new UIManager();
 
+const knifeManager = new KnifeManager();
+
 
 checkKeyInput();
 Init();
@@ -31,6 +33,8 @@ function gameLoop() {
     objManager.UpdateAll();
 
     uiManager.Update();
+
+    knifeManager.Update();
 
     requestAnimationFrame(gameLoop);
 }
