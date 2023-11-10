@@ -1,16 +1,18 @@
 class enemySpawner {
     constructor() {
         this.timer = 0;
+        this.spawnrate = 200;
     }
 
     Update() {
         this.timer = this.timer + 1;
         
-        if (this.timer > 200) {
+        if (this.timer > this.spawnrate) {
             this.SpawnEnemy();   
 
             this.timer = 0;
-        }
+            this.spawnrate = this.spawnrate - 1;
+        }        
     }
 
 

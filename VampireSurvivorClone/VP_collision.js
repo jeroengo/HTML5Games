@@ -22,6 +22,7 @@ function MultiCollision(Self, Colliders) {
 
             if (Colliders[i].object.type == "enemy") {
                 Colliders[i].object.isAlive = false;
+                scoreManager.adjustScore(1);
             }
 
             //return Colliders[i.object];

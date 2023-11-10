@@ -1,9 +1,9 @@
-class KnifeManager {
+class BibleManager {
     constructor() {
         this.gameObjects = []
 
-        this.spawnTimer = 0;
-        this.spawnRate = 25;
+        this.spawnTimer = 199;
+        this.spawnRate = 200;
     };
 
     addObject(object) {
@@ -26,7 +26,7 @@ class KnifeManager {
 
             //console.log("spawning");
 
-            this.addObject(new Knife(player.dirx,player.diry, 
+            this.addObject(new Bible(player.dirx,player.diry, 
                 player.x + player.width / 2, 
                 player.y + player.height / 2));
 
