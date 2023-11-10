@@ -2,7 +2,7 @@ class BibleManager {
     constructor() {
         this.gameObjects = []
 
-        this.spawnTimer = 199;
+        this.spawnTimer = 0;
         this.spawnRate = 200;
     };
 
