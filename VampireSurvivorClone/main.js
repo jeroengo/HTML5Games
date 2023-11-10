@@ -12,6 +12,7 @@ const uiManager = new UIManager();
 
 const knifeManager = new KnifeManager();
 const bibleManager = new BibleManager();
+const starManager = new StarManager();
 
 
 checkKeyInput();
@@ -37,6 +38,8 @@ function gameLoop() {
 
     knifeManager.Update();
     bibleManager.Update();
+    starManager.Update();
+
 
     requestAnimationFrame(gameLoop);
 }
