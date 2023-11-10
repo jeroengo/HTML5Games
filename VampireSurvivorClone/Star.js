@@ -22,6 +22,8 @@ class Star {
         this.timer = 0;
 
         this.animtime = 0;
+
+        this.player;
     }
 
 
@@ -53,16 +55,40 @@ class Star {
 
     Move() {
 
-        let player = newPlayer.getPlayer();
+        player = newPlayer.getPlayer();
 
         this.animtime++;
 
-        this.object.x = Math.sin(this.animtime*0.05) * 100 + player.x;
-        this.object.y = Math.cos(this.animtime*0.05) * 100 + player.y;
+        this.object.x = Math.sin(this.animtime*0.05) * 100 + this.player.x;
+        this.object.y = Math.cos(this.animtime*0.05) * 100 + this.player.y;
 
         //console.log("Bible!");
     }
 
+    GetClosestEnemy(){
+
+        let closestEnemy;
+
+        for (let i = 0; i < objManager.gameObjects[i]; i++) {
+            if(objManager.gameObjects[i].type == "enemy"){
+
+                this.CalculateDistance(this.player.x, this.player,y, 
+                    objManager.gameObjects[i].x,objManager.gameObjects[i].x);
+            }
+            
+
+        }
+
+        return closestEnemy;
+    }
+
+    CalculateDistance(x1,y1,x2,y2){
+        const deltaX = y2 - x1;
+        const deltaY = y2 - y1;
+        const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+
+        return distance;
+    }
 
     Draw() {
         ctx.fillStyle = "black";
