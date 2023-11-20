@@ -10,9 +10,8 @@ const scoreManager = new ScoreManager();
 
 const uiManager = new UIManager();
 
-const knifeManager = new KnifeManager();
-const bibleManager = new BibleManager();
-const starManager = new StarManager();
+const weaponManager = new WeaponManager();
+
 
 
 checkKeyInput();
@@ -36,9 +35,8 @@ function gameLoop() {
 
     uiManager.Update();
 
-    knifeManager.Update();
-    bibleManager.Update();
-    starManager.Update();
+    weaponManager.UpdateAll();
+
 
 
     requestAnimationFrame(gameLoop);
