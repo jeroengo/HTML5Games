@@ -1,6 +1,6 @@
 class enemySpawner {
     constructor() {
-        this.timer = 0;
+        this.timer = 180;
         this.spawnrate = 200;
     }
 

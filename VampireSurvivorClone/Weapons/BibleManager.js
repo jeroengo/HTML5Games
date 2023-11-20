@@ -11,7 +11,6 @@ class BibleManager {
     }
 
     removeObject(object) {
-
     }
 
     Update() {

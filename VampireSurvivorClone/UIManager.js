@@ -6,10 +6,19 @@ class UIManager {
 
     Update() {
         this.DisplayScore();
+        this.DisplayWeapons();
     }
 
     DisplayScore() {
-        this.ctx.font = "bold 30px Arial";
-        this.ctx.fillText(scoreManager.getScore(), 50, 50);
+        this.ctx.font = "bold 12px Arial";
+        this.ctx.fillText("Kills: " + scoreManager.getScore(), 50, 50);
+    }
+
+    DisplayWeapons() {
+        const wep = weaponManager.weapons.length;
+        const str = wep.toString();
+
+        this.ctx.font = "bold 12px Arial";
+        this.ctx.fillText("Weapons: " + str, 50, 75);
     }
 }

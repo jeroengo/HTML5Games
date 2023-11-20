@@ -29,11 +29,11 @@ class Player {
 
         //console.log(keys);
 
-        if (keys.Space) {
+        // if (keys.Space) {
 
-            objManager.addObject(new Knife(this.direction, this.player.x + this.player.width*0.5, this.player.y + this.player.height/2));
+        //     objManager.addObject(new Knife(this.direction, this.player.x + this.player.width*0.5, this.player.y + this.player.height/2));
 
-        }
+        // }
     }
 
     PlayerMovement() {
