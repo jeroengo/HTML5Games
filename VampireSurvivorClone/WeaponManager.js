@@ -5,7 +5,7 @@ class WeaponManager {
         this.spawnTimer = 0;
         this.spawnRate = 200;
 
-        //this.addObject();
+        this.addObject(new BottleManager());
     };
 
     addObject(object) {
