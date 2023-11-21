@@ -19,15 +19,13 @@ class enemySpawner {
     SpawnEnemy() {
 
         let spawnPos = {
-            x: this.getRndInteger(1,800),
-            y : this.getRndInteger(1,600)
+            x: getRndInteger(1,800),
+            y: getRndInteger(1,600)
         }
         
         objManager.addObject(new Enemy(spawnPos.x, spawnPos.y));
     }
 
-    getRndInteger(min, max){
-        return Math.floor(Math.random() * (max-min)) + min;
-    }
+    
 
 }

@@ -5,12 +5,12 @@ class Bottle {
             height: 10,
             x: startx,
             y: starty,
-            speed: 5,
+            speed: getRndInteger(1,5),
             damage: 1,
             isAlive: true,
-            lifetime: 300,
+            lifetime: 50,
             gravity: 0.1,
-            velocity: -4
+            velocity: getRndInteger(-2,-4)
         };
 
         this.object.x -= this.object.width / 2;
@@ -18,7 +18,7 @@ class Bottle {
 
         this.dir = {
             x: dirx,
-            y: diry
+            y: 0
         };
 
         this.timer = 0;
@@ -54,11 +54,12 @@ class Bottle {
 
     Move() {       
 
+        
 
         this.dir.y = 0;
 
         this.object.x += this.dir.x * this.object.speed;
-        this.object.y += this.dir.y * this.object.speed;
+        //this.object.y += this.dir.y * this.object.speed;
 
         this.object.velocity += this.object.gravity;
         this.object.y += this.object.velocity;

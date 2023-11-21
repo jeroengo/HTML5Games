@@ -12,7 +12,7 @@ const uiManager = new UIManager();
 
 const weaponManager = new WeaponManager();
 
-
+const coinManager = new CoinManager();
 
 checkKeyInput();
 Init();
@@ -37,9 +37,13 @@ function gameLoop() {
 
     weaponManager.UpdateAll();
 
-
+    coinManager.UpdateAll();
 
     requestAnimationFrame(gameLoop);
+}
+
+function getRndInteger(min, max){
+    return Math.floor(Math.random() * (max-min)) + min;
 }
 
 function checkKeyInput() {
