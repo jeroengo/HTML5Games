@@ -5,7 +5,6 @@ class WeaponManager {
         this.spawnTimer = 0;
         this.spawnRate = 200;
 
-        this.addObject(new BottleManager());
     };
 
     addObject(object) {
@@ -26,7 +25,7 @@ class WeaponManager {
 
         if (keys.Space) {
 
-            this.addObject(new KnifeManager());
+            //this.addObject(new KnifeManager());
         }
 
         if (this.weapons.length > 0) {

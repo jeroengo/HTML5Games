@@ -31,8 +31,6 @@ class Bottle {
         this.CheckCollision();
         this.Move();
         this.Draw();
-
-
     }
 
     CheckCollision() {

@@ -14,6 +14,7 @@ const weaponManager = new WeaponManager();
 
 const coinManager = new CoinManager();
 
+
 checkKeyInput();
 Init();
 gameLoop();
@@ -38,6 +39,7 @@ function gameLoop() {
     weaponManager.UpdateAll();
 
     coinManager.UpdateAll();
+
 
     requestAnimationFrame(gameLoop);
 }
