@@ -26,10 +26,9 @@ class Enemy {
 
             if (Collision(this.object, newPlayer.player)) {
                
-                scoreManager.adjustScore(1);
+                scoreManager.adjustHealth(-1);
 
-                coinManager.addObject(new Coin(this.object.x, this.object.y));
-
+                
                 this.object.isAlive = false;
 
                 //this.object = null;

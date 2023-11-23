@@ -21,7 +21,12 @@ class Coin {
     }
 
     CheckCollision() {
-        MultiCollision(this.object, newPlayer.player);
+        
+
+        if(Collision(this.object, newPlayer.player)){
+            scoreManager.adjustScore(1);
+            this.SelfDestruction();
+        }
     }
 
     SelfDestruction() {

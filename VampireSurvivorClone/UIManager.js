@@ -6,12 +6,18 @@ class UIManager {
 
     Update() {
         this.DisplayScore();
+        this.DisplayHealth();
         this.DisplayWeapons();
     }
 
     DisplayScore() {
         this.ctx.font = "bold 12px Arial";
         this.ctx.fillText("Kills: " + scoreManager.getScore(), 50, 50);
+    }
+
+    DisplayHealth() {
+        this.ctx.font = "bold 12px Arial";
+        this.ctx.fillText("Health: " + scoreManager.getHealth(), 50, 62);
     }
 
     DisplayWeapons() {

@@ -21,8 +21,11 @@ function MultiCollision(Self, Colliders) {
             Self.y + Self.height > Colliders[i].object.y) {
 
             if (Colliders[i].object.type == "enemy") {
+
+                coinManager.addObject(new Coin(Colliders[i].object.x, Colliders[i].object.y));
+
                 Colliders[i].object.isAlive = false;
-                scoreManager.adjustScore(1);
+                
             }
 
             //return Colliders[i.object];
