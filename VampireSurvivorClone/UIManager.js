@@ -1,19 +1,13 @@
 class UIManager {
     constructor() {
 
-         this.cBtn = {
-            x: 10,
-            y: 110,
-            w: 80, 
-            h: 80
-        };
+        this.knifeBttn = { x: 10, y: 110, w: 80, h: 80, canDisplay: true };
+        this.bibleBttn = { x: 10, y: 210, w: 80, h: 80, canDisplay: true };
 
         this.canvas = document.getElementById("canvas");
-        this.ctx = canvas.getContext("2d");  
+        this.ctx = canvas.getContext("2d");
 
-        this.handleClick = this.handleClick.bind(this);    
-        
-        // Add event listener to handle clicks on the canvas
+        this.handleClick = this.handleClick.bind(this);
         this.canvas.addEventListener('click', this.handleClick);
     }
 
@@ -22,7 +16,6 @@ class UIManager {
         this.DisplayHealth();
         this.DisplayWeapons();
         this.drawButton();
-
     }
 
     DisplayScore() {
@@ -44,44 +37,50 @@ class UIManager {
     }
 
     drawButton() {
-        //ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    
+        if (this.knifeBttn.canDisplay) {
+            ctx.fillStyle = '#ccc';
+            ctx.fillRect(this.knifeBttn.x, this.knifeBttn.y, this.knifeBttn.w, this.knifeBttn.h);
 
-        ctx.fillStyle = '#ccc';
-        ctx.fillRect(this.cBtn.x, this.cBtn.y, this.cBtn.w, this.cBtn.h);
+            ctx.fillStyle = 'black';
+            ctx.font = '20px Arial';
+            ctx.fillText('Click Me', this.knifeBttn.x, this.knifeBttn.y);
+        }
 
-        //ctx.fillStyle = '#000';
-        //ctx.font = '20px Arial';
-        //ctx.fillText('Click Me', 50, 30);
+        if (this.bibleBttn.canDisplay) {
+            ctx.fillStyle = '#ccc';
+            ctx.fillRect(this.bibleBttn.x, this.bibleBttn.y, this.bibleBttn.w, this.bibleBttn.h);
+        }
     }
 
     // Function to handle button click
     handleClick(event) {
+
+        //get where click has happened
         const rect = canvas.getBoundingClientRect();
         const clickx = event.clientX - rect.left;
         const clicky = event.clientY - rect.top;
 
-       
+        // Check knife Button check
+        if (clickx > this.knifeBttn.x &&
+            clickx < this.knifeBttn.x + this.knifeBttn.w &&
+            clicky > this.knifeBttn.y &&
+            clicky < this.knifeBttn.y + this.knifeBttn.h) {
 
-        //console.log(this.yolo)
-        
-        // Check if click is within the button area
-        if (clickx > this.cBtn.x && 
-            clickx < this.cBtn.x + this.cBtn.w && 
-            clicky > this.cBtn.y && 
-            clicky < this.cBtn.y + this.cBtn.h) {
-            // Execute your desired functionality here
-            
             // Add your code to execute on button click
-             console.log('Button clicked!');
-             weaponManager.addObject(new KnifeManager());
+            console.log('knfieBttnW clicked!');
+            weaponManager.addObject(new KnifeManager());
+        }
+
+        // Check knife Button check
+        if (clickx > this.bibleBttn.x &&
+            clickx < this.bibleBttn.x + this.bibleBttn.w &&
+            clicky > this.bibleBttn.y &&
+            clicky < this.bibleBttn.y + this.bibleBttn.h) {
+
+            // Add your code to execute on button click
+            console.log('bibleBttn clicked!');
+            weaponManager.addObject(new BibleManager());
         }
     }
-
-
-    
-
-    // Initially draw the button on the canvas
-
 }
